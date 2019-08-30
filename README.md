@@ -35,6 +35,6 @@ export class MyComponent  {
 </details>
 ---
 
-[Back to top](#Angular-questions-and-answers)
+[Back to top](#angular-questions-and-answers)
 
 Licensed under the terms of the MIT License.
