@@ -1,0 +1,35 @@
+<nb-card [accent]="accent">
+  <nb-card-header>
+    <div class="question__tags">
+      <nb-badge position="top left"
+        status="success"
+        text="Level {{question.difficultyLevel + 1}}"></nb-badge>
+      <nb-badge *ngFor="let tag of question.tags"
+        [text]="tag"
+        position="top right"></nb-badge>
+    </div>
+    <div [innerHTML]="question.question | markdown"></div>
+  </nb-card-header>
+  <nb-card-body>
+    <div [innerHTML]="question.questionCode | markdown"></div>
+    <nb-radio-group [(ngModel)]="selectedAnswer">
+      <nb-radio *ngFor="let option of question?.options; let index = index"
+        [value]="index + 1">
+        <span [innerHTML]="option | markdown"></span>
+      </nb-radio>
+    </nb-radio-group>
+    <nb-accordion class="question__explanation">
+      <nb-accordion-item [expanded]="selectedAnswer !== undefined">
+        <nb-accordion-item-header>
+          Click to see the correct answer</nb-accordion-item-header>
+        <nb-accordion-item-body>
+          <div class="question__answer">
+            <b>Answer:</b>
+            <span [innerHTML]="question?.options[question.correctAnswerIndex] | markdown"></span>
+          </div>
+          <div [innerHTML]="question.explanation | markdown"></div>
+        </nb-accordion-item-body>
+      </nb-accordion-item>
+    </nb-accordion>
+  </nb-card-body>
+</nb-card>

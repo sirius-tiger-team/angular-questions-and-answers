@@ -1,0 +1,16 @@
+<nb-layout>
+
+    <nb-layout-header fixed>
+      Angular Questions & Answers
+    </nb-layout-header>
+
+    <nb-layout-column>
+      <app-question *ngFor="let question of questions$ | async" [question]="question"></app-question>
+
+    </nb-layout-column>
+
+    <nb-layout-footer fixed>
+      <!-- Insert footer here -->
+    </nb-layout-footer>
+
+  </nb-layout>
