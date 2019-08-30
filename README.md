@@ -2,7 +2,7 @@
 
 A public, community-driven repository of Angular questions and answers, designed for e-learning and self-assessment. 
 
-This repository is open to community contributions. Please honor our contributions guideline (currently in progress) in order to keep the questions and answers on point.
+This repository is open to community contributions. Please observe our [contributions guideline](CONTRIBUTING.md) in order to keep the questions and answers on point.
 
 You can fetch a localized version of these questions in raw JSON format from the `data` folder.
 
@@ -25,7 +25,7 @@ export class MyComponent  {
 - D: `My name is <%=name%>`
 
 <details>
-  <summary><strong>Click to see correct answer</strong></summary>
+  <summary><strong>Click to see the answer</strong></summary>
   <p>
 
   #### Answer: C
@@ -54,7 +54,7 @@ p {
 - D: All the above are correct.
 
 <details>
-  <summary><strong>Click to see correct answer</strong></summary>
+  <summary><strong>Click to see the answer</strong></summary>
   <p>
 
   #### Answer: D
