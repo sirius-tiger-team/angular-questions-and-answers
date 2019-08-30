@@ -61,7 +61,7 @@ p {
 
   Although Angular will render HTML that honors the global project CSS ruleset, it will also bundle component styles with components, enabling a more modular design than regular stylesheets, and injecting the CSS that is needed only when components are provisioned. Such styling will be scoped to the component it belongs, unless a different view encapsulation is used.
 
-  In order to associate CSS styles to the rendered component, we can use ekither of the approaches above. The right apporach will depend on the context of the component, the amount of CSS to be applied and the level of reusability we can to apply. Please note that the CSS generated like this is not inherited by any child component.
+  In order to associate CSS styles to the rendered component, we can use either of the approaches above. The right apporach will depend on the context of the component, the amount of CSS to be applied and the level of reusability we can to apply. Please note that the CSS generated like this is not inherited by any child component.
 
   </p>
 </details>
