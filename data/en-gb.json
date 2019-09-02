@@ -25,5 +25,18 @@
     "explanation": "Although Angular will render HTML that honors the global project CSS ruleset, it will also bundle component styles with components, enabling a more modular design than regular stylesheets, and injecting the CSS that is needed only when components are provisioned. Such styling will be scoped to the component it belongs, unless a different view encapsulation is used.\n\nIn order to associate CSS styles to the rendered component, we can use either of the approaches above. The right apporach will depend on the context of the component, the amount of CSS to be applied and the level of reusability we can to apply. Please note that the CSS generated like this is not inherited by any child component.",
     "tags": ["components"],
     "difficultyLevel": 0
+  }, {
+    "question": "3. How would you create two way data binding property in a component?",
+    "questionCode": "````html\n <app-my-component [(add)]='myAdd'></app-my-component>```",
+    "options": [
+      "By using the `@IO` decorator in a property `add`.",
+      "By naming input property and output events with the same name: `add`.",
+      "By naming the input property as `add` and the output event as `addChange`.",
+      "All the above are correct."
+    ],
+    "correctAnswerIndex": 3,
+    "explanation": "Angular has this syntatic sugar when we has a property `x` and a corresponding event named `xChange`. Angular desugars the binding into `<app-my-component [add]='myAdd' (addChange)='myAdd=$event'></app-my-component>`.",
+    "tags": ["components"],
+    "difficultyLevel": 0
   }
 ]
