@@ -67,30 +67,6 @@ p {
 </details>
 
 --- 
-#### 5. How would you create a two-way data binding property in a component?
-```html
-  <app-my-component [(add)]="myAdd"></app-my-component>
-```
-##### Possible answers:
-
-- A: By using the `@IO` decorator in a property `add`.
-- B: By naming input property and output events with the same name: `add`.
-- C: By naming the input property as `add` and the output event as `addChange`.
-- D: All the above are correct.
-
-<details>
-  <summary><strong>Click to see the answer</strong></summary>
-  <p>
-
-  #### Answer: C
-
-  Angular has this syntatic sugar when we has a property `x` and a corresponding event named `xChange`. Angular desugars the binding into 
-  `<app-my-component [add]="myAdd" (addChange)="myAdd=$event"></app-my-component>`.
-
-  </p>
-</details>
-
----
 
 #### 3. What will happen if you run the following CLI command in the shell of an Angular workspace?
 
@@ -164,7 +140,32 @@ export class MusicModule {
   </p>
 </details>
 
---- 
+---
+
+#### 5. How would you create a two-way data binding property in a component?
+```html
+  <app-my-component [(add)]="myAdd"></app-my-component>
+```
+##### Possible answers:
+
+- A: By using the `@IO` decorator in a property `add`.
+- B: By naming input property and output events with the same name: `add`.
+- C: By naming the input property as `add` and the output event as `addChange`.
+- D: All the above are correct.
+
+<details>
+  <summary><strong>Click to see the answer</strong></summary>
+  <p>
+
+  #### Answer: C
+
+  Angular has this syntatic sugar when we has a property `x` and a corresponding event named `xChange`. Angular desugars the binding into 
+  `<app-my-component [add]="myAdd" (addChange)="myAdd=$event"></app-my-component>`.
+
+  </p>
+</details>
+
+---
 
 [Back to top](#angular-questions-and-answers)
 
