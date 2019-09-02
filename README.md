@@ -67,7 +67,7 @@ p {
 </details>
 
 --- 
-#### 1. How would you create two way data binding property in a component?
+#### 5. How would you create a two-way data binding property in a component?
 ```html
   <app-my-component [(add)]="myAdd"></app-my-component>
 ```
