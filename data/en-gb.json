@@ -25,5 +25,30 @@
     "explanation": "Although Angular will render HTML that honors the global project CSS ruleset, it will also bundle component styles with components, enabling a more modular design than regular stylesheets, and injecting the CSS that is needed only when components are provisioned. Such styling will be scoped to the component it belongs, unless a different view encapsulation is used.\n\nIn order to associate CSS styles to the rendered component, we can use either of the approaches above. The right apporach will depend on the context of the component, the amount of CSS to be applied and the level of reusability we can to apply. Please note that the CSS generated like this is not inherited by any child component.",
     "tags": ["components"],
     "difficultyLevel": 0
+  }, {
+    "question": "3. What will happen if you run the following CLI command in the shell of an Angular workspace?",
+    "questionCode": "```bash\n    $ ng g c Foo -c=Default\n    ```",
+    "options": [
+      "It builds the Angular application and serves it with the default settings from `http://foo:4200/`.",
+      "It creates a new component named `FooComponent` with the default setup for change detection.",
+      "It generates a new application named `Foo` where the main entry component is `Default`.",
+      "The command will throw an error in the console: `ng g c -c` are made up script params."
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "  The syntax above depicts the shorthand version of:\n    ```bash\n    $ ng generate component Foo --changeDetection=Default\n    ````\n\n    This command will create a new component named `FooComponent` within the `./foo` folder with the Change Detection startegy set to Default.\n\n    In practice, all the main CLI commands and most of the modifier parameters are extended with shorthand versions.",
+    "tags": ["cli"],
+    "difficultyLevel": 1
+  }, {
+    "question": "4. What is the purpose of the `deps` array property in the following code snippet?",
+    "questionCode": "```typescript\n    @NgModule({\n      providers: [{\n        provide: MusicService,\n        useFactory: myMusicServiceFactory,\n        deps: [CountryMusicLibrary]\n      }]\n    })\n    export class MusicModule {\n      // etc..\n    }\n    ```",
+    "options": [
+      "It injects an instance of `MusicService` in the providers pool of `MusicModule`. Such instance is returned by the `myMusicServiceFactory()` factory function, which is executed passing an instance of the `CountryMusicLibrary` class as the function parameter.",
+      "It sets `CountryMusicLibrary` as the default implementation for the `MusicService` token, which also requires `myMusicServiceFactory` as a dependency altogether.",
+      "From that moment on, any component or service injecting `CountryMusicLibrary` will get an instance of `MusicService` instead, executing `myMusicServiceFactory()` as a callback on every injection."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "  The snippet above configures the dependency injection machinery to execute the `myMusicServiceFactory()` factory function in order to retrieve the singleton required to implement `MusicService` in the context of the dependency injector for `MusicModule`. However, that function will expect a parameter typed as `CountryMusicLibrary` upon execution. An implementation example could operate as follows:\n    ```typescript\n    const myMusicServiceFactory = (library: CountryMusicLibrary): MusicService => {\n      return new StyledMusicService(library);\n    };\n    ```",
+    "tags": ["dependency injection"],
+    "difficultyLevel": 2
   }
 ]

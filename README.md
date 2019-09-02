@@ -68,6 +68,80 @@ p {
 
 --- 
 
+#### 3. What will happen if you run the following CLI command in the shell of an Angular workspace?
+
+```bash
+$ ng g c Foo -c=Default
+```
+
+##### Possible answers:
+
+- A: It builds the Angular application and serves it with the default settings from `http://foo:4200/`.
+- B: It creates a new component named `FooComponent` with the default setup for change detection.
+- C: It generates a new application named `Foo` where the main entry component is `Default`.
+- D: The command will throw an error in the console: `ng g c -c` are made up script params.
+
+<details>
+  <summary><strong>Click to see the answer</strong></summary>
+  <p>
+
+  #### Answer: B
+
+  The syntax above depicts the shorthand version of:
+  
+  ```bash
+  $ ng generate component Foo --changeDetection=Default
+  ````
+
+  This command will create a new component named `FooComponent` within the `./foo` folder with the Change Detection startegy set to Default.
+
+  In practice, all the main CLI commands and most of the modifier parameters are extended with shorthand versions.
+
+  </p>
+</details>
+
+--- 
+
+#### 4. What is the purpose of the `deps` array property in the following code snippet?
+
+```typescript
+@NgModule({
+  providers: [{
+    provide: MusicService,
+    useFactory: myMusicServiceFactory,
+    deps: [CountryMusicLibrary]
+  }]
+})
+export class MusicModule {
+  // etc..
+}
+```
+
+##### Possible answers:
+
+- A: It injects an instance of `MusicService` in the providers pool of `MusicModule`. Such instance is returned by the `myMusicServiceFactory()` factory function, which is executed passing an instance of the `CountryMusicLibrary` class as the function parameter.
+- B: It sets `CountryMusicLibrary` as the default implementation for the `MusicService` token, which also requires `myMusicServiceFactory` as a dependency altogether.
+- C: From that moment on, any component or service injecting `CountryMusicLibrary` will get an instance of `MusicService` instead, executing `myMusicServiceFactory()` as a callback on every injection.
+
+<details>
+  <summary><strong>Click to see the answer</strong></summary>
+  <p>
+
+  #### Answer: A
+
+  The snippet above configures the dependency injection machinery to execute the `myMusicServiceFactory()` factory function in order to retrieve the singleton required to implement `MusicService` in the context of the dependency injector for `MusicModule`. However, that function will expect a parameter typed as `CountryMusicLibrary` upon execution. An implementation example could operate as follows:
+
+  ```typescript
+  const myMusicServiceFactory = (library: CountryMusicLibrary): MusicService => {
+    return new StyledMusicService(library);
+  };
+  ```
+
+  </p>
+</details>
+
+--- 
+
 [Back to top](#angular-questions-and-answers)
 
 Licensed under the terms of the MIT License.
