@@ -52,7 +52,7 @@
     "difficultyLevel": 2
   }, {
     "question": "5. How would you create two way data binding property in a component?",
-    "questionCode": "````html\n <app-my-component [(add)]='myAdd'></app-my-component>```",
+    "questionCode": "```html\n <app-my-component [(add)]='myAdd'></app-my-component>```",
     "options": [
       "By using the `@IO` decorator in a property `add`.",
       "By naming input property and output events with the same name: `add`.",
